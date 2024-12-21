@@ -41,7 +41,7 @@ const startServer = async () => {
   // WebSocket Server for Subscriptions
   const wsServer = new WebSocketServer({
     server: httpServer,
-    path: 'graphql',
+    path: '/graphql',
   });
 
   // Apollo Server
@@ -89,7 +89,7 @@ const startServer = async () => {
  //console.log("use server end ")
   server.applyMiddleware({
     app,
-    path: 'graphql',
+    path: '/graphql',
     cors: {
       origin: '*', 
       credentials: true,
