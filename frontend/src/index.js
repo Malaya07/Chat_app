@@ -31,7 +31,7 @@ console.log(authLink)
 // GraphQLWsLink for Subscriptions using graphql-ws
 const wsLink = new GraphQLWsLink(
   createClient({
-    url: "localhost:4000/graphql",
+    url: "chat-nlrzwgtbm-malayas-projects-695fa749.vercel.app/graphql",
     connectionParams: () => {
       const token = localStorage.getItem('jwt');
       if (!token) {
