@@ -31,7 +31,7 @@ console.log(authLink)
 // GraphQLWsLink for Subscriptions using graphql-ws
 const wsLink = new GraphQLWsLink(
   createClient({
-    url: "wss://chat-app-1-s77a.onrender.com/graphqlm",
+    url: "wss://chat-app-1-s77a.onrender.com/graphql",
     connectionParams: () => {
       const token = localStorage.getItem('jwt');
       if (!token) {
