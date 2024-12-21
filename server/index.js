@@ -11,13 +11,13 @@ dotenv.config();
 const resolvers = require('./resolver'); // Contains subscription logic
 const typeDefs = require('./typeDefs'); // GraphQL schema definitions
 const { connectToMongoDB } = require('./connection'); // MongoDB connection setup
-
+const PORT = process.env.PORT || 4000;
 const startServer = async () => {
   const app = express();
 
   const httpServer = createServer(app);
   // MongoDB Connection
-  await connectToMongoDB("mongodb+srv://Malaya:Malaya07@cluster0.jsfwi.mongodb.net/Malaya")
+  await connectToMongoDB(process.env.DATABASE_URL)
     .then(() => console.log("✅ MongoDB connected"))
     .catch((err) => console.error("❌ MongoDB connection error:", err));
 
@@ -91,15 +91,15 @@ const startServer = async () => {
     app,
     path: 'graphql',
     cors: {
-      origin: 'https://chat-app-2-n2qe.onrender.com', 
+      origin: '*', 
       credentials: true,
     },
   });
   
 
   // Start HTTP Server
-  httpServer.listen(4000, () => {
-    console.log('🚀 Server ready ');
+  httpServer.listen(PORT, () => {
+    console.log('🚀 Server ready ',`${PORT}`);
     console.log('🚀 Subscriptions ready');
   });
 };
