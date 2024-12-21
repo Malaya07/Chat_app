@@ -41,6 +41,13 @@ const startServer = async () => {
   // WebSocket Server for Subscriptions
   const wsServer = new WebSocketServer({
     server: httpServer,
+    handleProtocols: (protocols, request) => {
+    // Add logic to check if the WebSocket connection is allowed (e.g., check origin header)
+    if (request.headers.origin === 'https://chat-app-2-n2qe.onrender.com') {
+      return true;
+    }
+    return false;
+  },
   });
 
   // Apollo Server
