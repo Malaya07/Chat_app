@@ -41,7 +41,6 @@ const startServer = async () => {
   // WebSocket Server for Subscriptions
   const wsServer = new WebSocketServer({
     server: httpServer,
-    path: '/graphql',
   });
 
   // Apollo Server
@@ -51,16 +50,16 @@ const startServer = async () => {
       const token = req?.headers?.authorization || req?.headers?.Authorization|| '';
       
       const user = getUser(token);
-     // console.log("server",user)
+    
       if (!user) {
-       // console.warn('Unauthorized WebSocket connection');
+        console.warn('Unauthorized WebSocket connection');
       }
       return { user };
     },
   });
 
   await server.start();
-  //console.log("use server start")
+
   useServer(
     {
       schema,
@@ -89,9 +88,8 @@ const startServer = async () => {
  //console.log("use server end ")
   server.applyMiddleware({
     app,
-    path: '/graphql',
     cors: {
-      origin: '*', // Your frontend's URL
+      origin: '*', 
       credentials: true,
     },
   });
@@ -99,8 +97,8 @@ const startServer = async () => {
 
   // Start HTTP Server
   httpServer.listen(4000, () => {
-    console.log('🚀 Server ready at http://localhost:4000/graphql');
-    console.log('🚀 Subscriptions ready at ws://localhost:4000/graphql');
+    console.log('🚀 Server ready ');
+    console.log('🚀 Subscriptions ready');
   });
 };
 
