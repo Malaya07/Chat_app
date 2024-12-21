@@ -11,7 +11,7 @@ import { BrowserRouter } from 'react-router-dom';
 
 // HTTP Link for Queries and Mutations
 const httpLink = createHttpLink({
-  uri: "https://chat-app-2-n2qe.onrender.com",
+  uri: "https://chat-app-1-fd0m.onrender.com",
   credentials:'same-origin'
 });
 
@@ -31,7 +31,7 @@ console.log(authLink)
 // GraphQLWsLink for Subscriptions using graphql-ws
 const wsLink = new GraphQLWsLink(
   createClient({
-    url: "wss://chat-app-2-n2qe.onrender.com",
+    url: "wss://chat-app-1-fd0m.onrender.com",
     connectionParams: () => {
       const token = localStorage.getItem('jwt');
       if (!token) {
