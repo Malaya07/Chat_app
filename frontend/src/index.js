@@ -11,7 +11,7 @@ import { BrowserRouter } from 'react-router-dom';
 
 // HTTP Link for Queries and Mutations
 const httpLink = createHttpLink({
-  uri: "chat-nlrzwgtbm-malayas-projects-695fa749.vercel.app",
+  uri: "https://chat-app-o5mz.onrender.com",
   credentials:'same-origin'
 });
 
@@ -31,7 +31,7 @@ console.log(authLink)
 // GraphQLWsLink for Subscriptions using graphql-ws
 const wsLink = new GraphQLWsLink(
   createClient({
-    url: "chat-nlrzwgtbm-malayas-projects-695fa749.vercel.app",
+    url: "ws://chat-app-o5mz.onrender.com",
     connectionParams: () => {
       const token = localStorage.getItem('jwt');
       if (!token) {
