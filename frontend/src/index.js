@@ -11,7 +11,7 @@ import { BrowserRouter } from 'react-router-dom';
 
 // HTTP Link for Queries and Mutations
 const httpLink = createHttpLink({
-  uri: process.env.httpLink,
+  uri: chat-nlrzwgtbm-malayas-projects-695fa749.vercel.app,
   credentials:'same-origin'
 });
 
