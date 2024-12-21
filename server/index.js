@@ -91,7 +91,7 @@ const startServer = async () => {
     app,
     path: 'graphql',
     cors: {
-      origin: '*', 
+      origin: 'https://chat-app-2-n2qe.onrender.com', 
       credentials: true,
     },
   });
